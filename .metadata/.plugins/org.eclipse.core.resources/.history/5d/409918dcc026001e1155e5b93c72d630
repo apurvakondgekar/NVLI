@@ -1,0 +1,27 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Test;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+
+public class googleTest {
+	
+	@Test
+	public void HomePageCheck() throws MalformedURLException
+	{
+		 // Specify the URL of the Selenium Grid server
+        String gridUrl = "http://10.129.155.98:4444/wd/hub";
+		
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowserName("chrome");
+		
+		@SuppressWarnings("deprecation")
+		WebDriver driver = new RemoteWebDriver(new URL("http://10.129.155.98:4444"), caps);
+		driver.get("http://google.com");
+		
+	}
+
+}

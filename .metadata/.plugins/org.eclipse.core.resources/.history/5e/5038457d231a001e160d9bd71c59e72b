@@ -1,0 +1,65 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class filters {
+	private WebDriver driver;
+	
+	  @BeforeClass
+	  public void setup() {
+
+	  System.setProperty("webdriver.chrome.driver","/Users/Clicker/Documents/Apurva 2023/chromedriver_win32/chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.get("https://indianculture.gov.in/audio");
+	  }
+
+		    @Test
+		    public void testMultipleCheckboxSelection() {
+		    	
+		    	
+		    	
+		        // Simulate selecting multiple checkbox options
+		        selectCheckboxOption("Central Institute of Higher Tibetan Studies");
+		        selectCheckboxOption("Eastern Zonal Cultural Centre");
+		        selectCheckboxOption("Reset");
+
+		        // Get the filtered data based on the selected checkboxes
+		        String[] filteredData = getFilteredData();
+
+		        // Verify that the filter applies the logical AND operation between the selected options
+		        // and that the filtered data matches all the selected checkbox options
+		        Assert.assertTrue(filteredData.length > 0, "Filtered data is not displayed.");
+		        Assert.assertTrue(hasOption(filteredData, "Option1"), "Filtered data does not contain Option1.");
+		        Assert.assertTrue(hasOption(filteredData, "Option2"), "Filtered data does not contain Option2.");
+		        Assert.assertTrue(hasOption(filteredData, "Option3"), "Filtered data does not contain Option3.");
+		    }
+
+		    // Simulates selecting a checkbox option
+		    private void selectCheckboxOption(String option) {
+		    	  // Find the element by its text using XPath
+		        WebElement element = driver.findElement(By.xpath("//span[contains(text(), option)]"));
+
+		        // Click on the element
+		        element.click();
+		    }
+
+		    // Retrieves the filtered data based on the selected checkboxes
+		    private String[] getFilteredData() {
+		        // Implement the logic to retrieve the filtered data
+		        return new String[]{"Data1", "Data2", "Data3", "Data4"};
+		    }
+
+		    // Checks if a specific option exists in the filtered data
+		    private boolean hasOption(String[] filteredData, String option) {
+		        for (String data : filteredData) {
+		            if (data.equals(option)) {
+		                return true;
+		            }
+		        }
+		        return false;
+		    }
+		}

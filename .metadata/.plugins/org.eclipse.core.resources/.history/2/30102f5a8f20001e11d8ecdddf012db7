@@ -1,0 +1,22 @@
+import org.openqa.selenium.*;
+import java.io.*;
+import org.openqa.selenium.chrome.*;
+
+public class PetWiki {
+    public static String getLoadedData(WebDriver driver) {
+      
+      driver.findElement(By.id("load-button")).click;
+      Thread.sleep(1000);
+      if(driver.findElement(By.id("load-button")).isEnabled)
+      {
+        String content = driver.findElement(By.id("content"));
+        return content;
+      }
+      else
+      {
+        return null;
+      }
+      
+        
+    }
+}

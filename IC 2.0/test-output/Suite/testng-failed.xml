@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="FinalTest(failed)">
+    <classes>
+      <class name="Final.FreedomArchive">
+        <methods>
+          <include name="teardown"/>
+          <include name="freedomarchives"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Final.FreedomArchive -->
+      <class name="Final.DidyouKnow">
+        <methods>
+          <include name="didyouknow"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Final.DidyouKnow -->
+      <class name="Final.HomePageHeader">
+        <methods>
+          <include name="HomePage2Search"/>
+          <include name="close"/>
+          <include name="launch"/>
+        </methods>
+      </class> <!-- Final.HomePageHeader -->
+      <class name="Final.ImageSliderAll">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testImageSlideshow"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- Final.ImageSliderAll -->
+      <class name="Final.Footer">
+        <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="footer"/>
+        </methods>
+      </class> <!-- Final.Footer -->
+      <class name="Final.ExternalLinks">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="externallinks"/>
+        </methods>
+      </class> <!-- Final.ExternalLinks -->
+      <class name="Final.Stories">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testStorySlider"/>
+          <include name="set"/>
+        </methods>
+      </class> <!-- Final.Stories -->
+      <class name="Final.CategoriesFinal">
+        <methods>
+          <include name="set"/>
+          <include name="tearDown"/>
+          <include name="testCategorySlider"/>
+        </methods>
+      </class> <!-- Final.CategoriesFinal -->
+      <class name="Final.Partners">
+        <methods>
+          <include name="partners"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- Final.Partners -->
+      <class name="Final.MoCOrganisations">
+        <methods>
+          <include name="set"/>
+          <include name="tearDown"/>
+          <include name="testMOCSlider"/>
+        </methods>
+      </class> <!-- Final.MoCOrganisations -->
+    </classes>
+  </test> <!-- FinalTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,83 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class Textiles_TextilesandFabricsofIndianStates {
+	private WebDriver driver;
+	   
+	   
+	  @BeforeClass
+	  public void setup() {
+		  ChromeOptions co = new ChromeOptions();
+		  co.addArguments("--remote-allow-origins=");
+	  //System.setProperty("webdriver.chrome.driver","/Users/Apurva/chromedriver-win64/chromedriver.exe");
+	  driver = new ChromeDriver(co);
+	  
+	  }
+
+	  @AfterClass
+	  public void teardown() {
+	  	driver.quit();
+	  }	 
+	  
+	 
+	//***********Weaving*************//
+	  
+	  @Test (enabled=true)
+	  public void Weaving () throws InterruptedException {
+		  driver.get("https://indianculture.gov.in/textiles-and-fabrics-of-india/textilestate");
+		  System.out.println(driver.getTitle());
+		  System.out.println("------------------");
+		  List<WebElement> elements = driver.findElements(By.tagName("area")); // Replace "tagname" with the tag name of the elements you want to retrieve
+		  System.out.println("States # "+ elements.size());
+		  for (WebElement element : elements) {
+		      String attributeValue = element.getAttribute("title");
+		      System.out.println(attributeValue);
+		      
+		      element.click();
+		      Thread.sleep(500);
+		      
+		      List <WebElement> pins = driver.findElements(By.tagName("//map/a"));
+		      System.out.println("Pins # "+ pins.size());
+		      for(WebElement pin : pins)
+		      {
+		    	  pin.click();
+		    	  Thread.sleep(500);
+		    	  
+		    	  driver.findElement(By.tagName("b")).getText();
+		    	  
+		      }
+		      
+		      List <WebElement> subresults = driver.findElements(By.className("thumbnail"));
+		      System.out.println("subresults # "+ subresults.size());
+		      for(WebElement result : subresults)
+		      {
+		    	 	    	  
+		    	  result.findElement(By.xpath("//span[@class='slide-caption']")).getText();
+		    	  
+		      }
+		      
+		      
+		  }
+		  System.out.println("------------------");
+	  }
+}

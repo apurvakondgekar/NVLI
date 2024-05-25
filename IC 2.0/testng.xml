@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Final.Categories2"/>
+      <class name="Final.ExternalLinks"/>
+      <class name=".DidyouKnow"/>
+      <class name=".Stories2verifyingeachimage"/>
+      <class name=".MoCOrganisations"/>
+      <class name=".ImageSlider"/>
+      <class name="Final.Stories"/>
+      <class name="Final.Partners"/>
+      <class name=".Categories2"/>
+      <class name="Final.ImageSliderAll"/>
+      <class name="Final.ImageSlider"/>
+      <class name=".CategoriesFinal"/>
+      <class name="Final.Categories"/>
+      <class name=".Categories"/>
+      <class name="Final.AllCategories"/>
+      <class name="Final.Footer"/>
+      <class name=".Footer"/>
+      <class name="Final.CategoriesFinal"/>
+      <class name=".ExternalLinks"/>
+      <class name="Final.HomePageHeader"/>
+      <class name="Final.DidyouKnow"/>
+      <class name=".categoryPage"/>
+      <class name=".AllCategories"/>
+      <class name=".ImageSliderAll"/>
+      <class name="Final.FreedomArchive"/>
+      <class name=".Stories3removingduplicatestories"/>
+      <class name=".Partners"/>
+      <class name=".Stories"/>
+      <class name="Final.MoCOrganisations"/>
+      <class name=".HomePageHeader"/>
+      <class name=".FreedomArchive"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

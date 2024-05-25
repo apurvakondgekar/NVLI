@@ -1,0 +1,155 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class TimelessTrends_Clothing_Timeline_Ancient {
+	private WebDriver driver;
+	   
+	   
+	  @BeforeMethod
+	  public void setup() {
+		  ChromeOptions co = new ChromeOptions();
+		  co.addArguments("--remote-allow-origins=");
+	  //System.setProperty("webdriver.chrome.driver","/Users/Apurva/chromedriver-win64/chromedriver.exe");
+	  driver = new ChromeDriver(co);
+	  
+	  }
+
+	  @AfterMethod
+	  public void teardown() {
+	  	driver.quit();
+	  }	 
+	  
+	 
+	//***********Getting list of Results (method 2 perfect)*************//
+	  
+	  @Test (enabled=true)
+	  public void Ancient () throws InterruptedException {
+		  
+		  driver.get("https://indianculture.gov.in/timeless-trends/clothing-ancient-timeline");
+		  System.out.println(driver.getTitle());
+		  
+		  System.out.println("Step 2");
+		  // Find all pager item links
+		  List<WebElement> subcategories = driver.findElements(By.className("timeline__card"));
+		  System.out.println(subcategories.size());
+		  ArrayList<String> h2Texts = new ArrayList<>();
+
+		  //********Reads the subcat titles**********//
+		  for(WebElement subcat : subcategories)
+		  {
+			  Thread.sleep(500); 
+			  WebElement Title = subcat.findElement(By.className("time__month"));
+			  String h2Text = Title.getText();
+			  h2Texts.add(h2Text);
+			  System.out.println(Title.getText());
+			  
+			  List <WebElement> timeline = subcat.findElements(By.className("h--timeline-date"));
+			  if(timeline.size()>0)
+			  {
+				  
+				  System.out.println("Sub-results start--");
+				  
+				  for(WebElement time :timeline)
+				  {
+				  
+				  Thread.sleep(500);
+				  time.click();
+				  Thread.sleep(500);
+				  System.out.println(subcat.findElement(By.xpath("//a[@class='time__month']")).getText());
+				  
+				  }
+				  System.out.println("Sub-results end--");
+			  }
+			  else
+			  {
+				  continue;
+			  }
+			  
+			  //********clicking on the subcat****************//
+		  }  
+		  
+	  }
+	       
+		//***********Medieval*************//
+		  
+		  @Test (enabled=true)
+		  public void Medieval () throws InterruptedException {
+			  
+			  driver.get("https://indianculture.gov.in/timeless-trends/clothing-medieval-timeline");
+			  System.out.println(driver.getTitle());
+			  
+			  System.out.println("Step 2");
+			  // Find all pager item links
+			  List<WebElement> subcategories = driver.findElements(By.className("timeline__card"));
+			  System.out.println(subcategories.size());
+			  ArrayList<String> h2Texts = new ArrayList<>();
+
+			  //********Reads the subcat titles**********//
+			  for(WebElement subcat : subcategories)
+			  {
+				  Thread.sleep(500); 
+				  WebElement Title = subcat.findElement(By.className("time__month"));
+				  String h2Text = Title.getText();
+				  h2Texts.add(h2Text);
+				  System.out.println(Title.getText());
+				  
+				  //********clicking on the subcat****************//
+			  }  
+		       
+		  }
+		  
+//***********Medieval*************//
+		  
+		  @Test (enabled=true)
+		  public void Colonial () throws InterruptedException {
+			  
+			  driver.get("https://indianculture.gov.in/timeless-trends/clothing-colonial-timeline");
+			  System.out.println(driver.getTitle());
+			  
+			  System.out.println("Step 2");
+			  // Find all pager item links
+			  List<WebElement> subcategories = driver.findElements(By.className("timeline__card"));
+			  System.out.println(subcategories.size());
+			  ArrayList<String> h2Texts = new ArrayList<>();
+
+			  //********Reads the subcat titles**********//
+			  for(WebElement subcat : subcategories)
+			  {
+				  Thread.sleep(500); 
+				  WebElement Title = subcat.findElement(By.className("time__month"));
+				  String h2Text = Title.getText();
+				  h2Texts.add(h2Text);
+				  System.out.println(Title.getText());
+				  
+				  //********clicking on the subcat****************//
+			  }  
+		       
+		  }
+	  
+	  
+
+	  
+}
+		  
+
+
